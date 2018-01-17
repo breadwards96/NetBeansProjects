@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lab2;
 
 import java.util.Random;
@@ -17,6 +12,7 @@ public class RobotHead {
 
     private String eyeColor;
 
+    //constructor for a new head and sets eye color
     public RobotHead() {
 
         Random numGen = new Random();
@@ -41,6 +37,7 @@ public class RobotHead {
         }
     }
 
+    //ToString, outputs the eye color
     @Override
     public String toString() {
 

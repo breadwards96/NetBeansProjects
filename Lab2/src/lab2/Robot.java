@@ -10,13 +10,18 @@ import java.util.Random;
  */
 public class Robot {
 
+    // the number of total robots across all objects
     static int numRobots = 0;
 
+    //body parts yet to be initialized
     RobotHead robotHead;
     RobotTorso robotTorso;
 
+    //robot name and id between 0 and 99,999
     String serialID;
 
+    //constructor for the robot object
+    //generates serial ID and inits body parts
     public Robot() {
         Random numGen = new Random();
         
@@ -27,11 +32,13 @@ public class Robot {
 
     }
 
+    //to get the total number of robots
     public int getRobotCount() {
 
         return numRobots;
     }
 
+    //to make a semi-deep copy of a robot with the same serial ID
     public Robot copy() {
 
         Robot robotCopy = new Robot();
@@ -41,21 +48,25 @@ public class Robot {
         return robotCopy;
     }
     
+    //used with the copy method
     public void setSerialID(String ID){
         
         serialID = ID;
     }
 
+    //to compare the serial ids of two robots
     public boolean equals(Robot robot) {
 
         return serialID.equals(robot.getSerialID());
     }
     
+    //to retrieve a robots serial ID
     public String getSerialID(){
         
         return serialID;
     }
     
+    //to string the prints serial id and toString for body parts
     @Override
     public String toString(){
         
