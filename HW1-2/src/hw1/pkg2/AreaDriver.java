@@ -12,17 +12,18 @@ import java.util.Scanner;
  */
 public class AreaDriver {
 
-    /**
-     * @param args the command line arguments
-     */
+    //a program that asks for input 
+    //and invokes methods to perform area calculations
     public static void main(String[] args) {
-        // TODO code application logic here
 
+        //scanner for user input
         Scanner keyboard = new Scanner(System.in);
 
+        //variables for holding user input values
         double circleRadius, cylinderRadius, height, area;
         int width, length;
 
+        //ask for and assign user input
         System.out.println("Enter the radius of the circle:");
         circleRadius = keyboard.nextDouble();
 
@@ -42,6 +43,7 @@ public class AreaDriver {
         System.out.println("the area of a circle with a radius of "
                 + circleRadius + " is " + area);
 
+        //calculating the area and printing the result
         area = area(width, length);
         System.out.println("the area of a rectangle with a width of "
                 + width + " and a length of " + length + " is " + area);

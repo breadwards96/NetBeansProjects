@@ -9,14 +9,17 @@ import java.util.Random;
  */
 public class SlotMachine {
 
+    //three int arrays to represent the slot dials
     private int[] row1 = new int[3];
     private int[] row2 = new int[3]; 
     private int[] row3 = new int[3];
 
+    //constructor to create and play a slot machine
     public SlotMachine() {
         playMachine();
     }
 
+    //gens a random number and plays the three dials
     public void playMachine() {
 
         Random numberGenerator = new Random();
@@ -35,25 +38,16 @@ public class SlotMachine {
         
     }
 
+    //checks the three dials for the same number and determines winners
     public boolean isWinner() {
-        boolean result = false;
 
         if(row1[0] == row1[1] && row1[1] == row1[2]){
-            result = true;
-            return result;
+            return true;
         }
         if(row2[0] == row2[1] && row2[1] == row2[2]){
-            result = true;
-            return result;
+            return true;
         }
-        if(row3[0] == row3[1] && row3[1] == row3[2]){
-            result = true;
-            return result;
-        }
-        
-                
-                
-        return result;
+        return row3[0] == row3[1] && row3[1] == row3[2];
     }
 
 }
