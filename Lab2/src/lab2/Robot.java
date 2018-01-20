@@ -11,14 +11,14 @@ import java.util.Random;
 public class Robot {
 
     // the number of total robots across all objects
-    static int numRobots = 0;
+    private static int numRobots = 0;
 
     //body parts yet to be initialized
-    RobotHead robotHead;
-    RobotTorso robotTorso;
+    private RobotHead robotHead;
+    private RobotTorso robotTorso;
 
     //robot name and id between 0 and 99,999
-    String serialID;
+    private String serialID;
 
     //constructor for the robot object
     //generates serial ID and inits body parts
