@@ -33,7 +33,7 @@ public class Robot {
     }
 
     //to get the total number of robots
-    public int getRobotCount() {
+    public static int getRobotCount() {
 
         return numRobots;
     }
