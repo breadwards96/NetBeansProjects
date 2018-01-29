@@ -30,10 +30,15 @@ public class LessNaiveEncryption {
 		// should be the variable userInput.
 		//
 		// Step 1 can be completed in a single line of code.
+                
+                //initialize a stringTokenizer object to hold and parse the userInput
 		StringTokenizer stringTokenizerObject = new StringTokenizer(userInput, " ", true);
 
+                //print the result sentence before the calculation for proper formatting
 		System.out.print("The output sentence is   : ");
 
+                //a while loop that takes the phrase and reverses each word until the whole phrase is done
+                //will only reverse the letters in the word not the entire sentence
 		while (stringTokenizerObject.hasMoreTokens()) {
 			StringBuilder token = new StringBuilder(stringTokenizerObject.nextToken());
 			System.out.print(token.reverse());
