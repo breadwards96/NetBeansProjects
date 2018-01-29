@@ -29,7 +29,7 @@ public class RobotGarage {
         
         //Counting robots
         System.out.println("There are "
-                + robotGarage[1].getRobotCount()
+                + Robot.getRobotCount()
                 + " robots"
                 + "\n");
 
