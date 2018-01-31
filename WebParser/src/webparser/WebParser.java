@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package webparser;
 
 import java.io.BufferedReader;
@@ -13,20 +8,19 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.StringTokenizer;
 
-/**
- *
- * @author brandonedwards
+/* @Author Brandon Edwards 
+ * Date 1/29/18 
+ * Honor Code I pledge that this submission is solely my work,
+ * and that I have neither given to nor received help from anyone
+ * other than the instructor or TAs.
  */
 public class WebParser {
 
-    /**
-     * @param args the command line arguments
-     * @throws java.io.IOException
-     */
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
 
-        HttpURLConnection connection = (HttpURLConnection) new URL("https://www.youtube.com").openConnection();
+        HttpURLConnection connection = (HttpURLConnection) new URL(
+                "https://www.youtube.com").openConnection();
 
         int responseCode = connection.getResponseCode();
 
@@ -55,5 +49,8 @@ public class WebParser {
             }
             
         }
+        
+        
+        
     }
 }

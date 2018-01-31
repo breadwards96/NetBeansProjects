@@ -14,12 +14,21 @@ package Task1;
 public class PatrolSimulation {
 
     public static void main(String[] args) {
-    
+
         ParkedCar[] cars = new ParkedCar[2];
         ParkingMeter[] meters = new ParkingMeter[2];
+        PoliceOfficer officer = new PoliceOfficer("Johnny Law", "14549");
+        ParkingTicket[] tickets = new ParkingTicket[2];
+        
+        cars[1] = new ParkedCar("Mitsubishi", "Mirage", "Black", "aba658", 60);
+        cars[2] = new ParkedCar("Nissan", "Rogue", "Grey", "nex926", 320);
+        meters[1] = new ParkingMeter(120);
+        meters[2] = new ParkingMeter(30);
+        tickets[1] = new ParkingTicket(cars[1], officer, meters[1].getMinutesPurchased());
         
         
         
+
     }
-    
+
 }

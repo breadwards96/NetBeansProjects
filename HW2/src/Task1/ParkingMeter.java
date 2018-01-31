@@ -19,6 +19,12 @@ public class ParkingMeter {
         minutesPurchased = numMinsPurchased;
     }
 
+    public ParkingMeter(ParkingMeter meter) {
+        ParkingMeter copyMeter = new ParkingMeter(minutesPurchased);
+    }
+    
+    
+
     public int getMinutesPurchased() {
         return minutesPurchased;
     }

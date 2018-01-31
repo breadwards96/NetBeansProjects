@@ -21,21 +21,19 @@ public class ParkingTicket {
     public final double HOURLY_FINE = 10.0;
 
     public ParkingTicket(ParkedCar aCar, PoliceOfficer anOfficer, int meterMins) {
-        car = aCar;
-        officer = anOfficer;
+        car = new ParkedCar(aCar);
+        officer = new PoliceOfficer(anOfficer);
         minutes = meterMins;
     }
 
     public void calculateFine() {
 
-        fine = BASE_FINE +
-                (HOURLY_FINE*
-                 (Math.round(
-                         (double)(minutes + 50)
-                                 /60)
-                 )
-                );
-        
+        fine = (minutes + BASE_FINE)
+                + (HOURLY_FINE
+                * (Math.round(
+                        (double) (minutes + 50)
+                        / 60)));
+
     }
 
     public ParkedCar getCar() {
@@ -79,7 +77,5 @@ public class ParkingTicket {
                 + "\n BASE_FINE = " + BASE_FINE
                 + "\n HOURLY_FINE = " + HOURLY_FINE;
     }
-    
-    
 
 }
