@@ -35,7 +35,8 @@ public class ParkingMeter {
 
     @Override
     public String toString() {
-        return "minutesPurchased = "
+        return "Parking Meter Data:"
+                + "\n Minutes Purchased = "
                 + minutesPurchased;
     }
 

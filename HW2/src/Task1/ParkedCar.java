@@ -30,7 +30,7 @@ public class ParkedCar {
     public ParkedCar(ParkedCar car2) {
 
         ParkedCar copyCar = new ParkedCar(
-                make,
+                this.make,
                 model,
                 color,
                 licenseNumber,
@@ -79,11 +79,12 @@ public class ParkedCar {
 
     @Override
     public String toString() {
-        return "\n make = " + make
-                + "\n model = " + model
-                + "\n color = " + color
-                + "\n licenseNumber = " + licenseNumber
-                + "\n minutesParked = " + minutesParked;
+        return "Car Data:"
+                + "\n Make = " + make
+                + "\n Model = " + model
+                + "\n Color = " + color
+                + "\n License Number = " + licenseNumber
+                + "\n Minutes Parked = " + minutesParked;
     }
 
 }

@@ -20,12 +20,22 @@ public class PatrolSimulation {
         PoliceOfficer officer = new PoliceOfficer("Johnny Law", "14549");
         ParkingTicket[] tickets = new ParkingTicket[2];
         
-        cars[1] = new ParkedCar("Mitsubishi", "Mirage", "Black", "aba658", 60);
-        cars[2] = new ParkedCar("Nissan", "Rogue", "Grey", "nex926", 320);
-        meters[1] = new ParkingMeter(120);
-        meters[2] = new ParkingMeter(30);
+        cars[0] = new ParkedCar("Mitsubishi", "Mirage", "Black", "aba658", 60);
+        cars[1] = new ParkedCar("Nissan", "Rogue", "Grey", "nex926", 320);
+        meters[0] = new ParkingMeter(120);
+        meters[1] = new ParkingMeter(30);
+        tickets[0] = new ParkingTicket(cars[0], officer, meters[0].getMinutesPurchased());
         tickets[1] = new ParkingTicket(cars[1], officer, meters[1].getMinutesPurchased());
         
+        for(int x = 0;x<cars.length;x++){
+            if(cars[x].getMinutesParked() > meters[x].getMinutesPurchased()){
+                tickets[x].calculateFine();
+                System.out.println(tickets[x]);
+            } else {
+                System.out.println("Ticket Data: \n"
+                + "No Violation");
+            }
+        }
         
         
 

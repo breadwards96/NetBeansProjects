@@ -28,7 +28,7 @@ public class ParkingTicket {
 
     public void calculateFine() {
 
-        fine = (minutes + BASE_FINE)
+        fine = (BASE_FINE)
                 + (HOURLY_FINE
                 * (Math.round(
                         (double) (minutes + 50)
@@ -70,12 +70,11 @@ public class ParkingTicket {
 
     @Override
     public String toString() {
-        return "car = " + car
-                + "\n officer = " + officer
-                + "\n fine = " + fine
-                + "\n minutes = " + minutes
-                + "\n BASE_FINE = " + BASE_FINE
-                + "\n HOURLY_FINE = " + HOURLY_FINE;
+        return "Ticket Data:"
+                + "\n" + car.toString()
+                + "\n" + officer.toString()
+                + "\n Fine = " + fine
+                + "\n Minutes Purchased = " + minutes;
     }
 
 }
