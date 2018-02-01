@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Task1;
 
 /* @Author Brandon Edwards 
@@ -13,26 +8,25 @@ package Task1;
  */
 public class ParkingMeter {
 
+    //parking meter meter
     private int minutesPurchased;
 
+    //constructor for adding time
     public ParkingMeter(int numMinsPurchased) {
         minutesPurchased = numMinsPurchased;
     }
 
-    public ParkingMeter(ParkingMeter meter) {
-        ParkingMeter copyMeter = new ParkingMeter(minutesPurchased);
-    }
-    
-    
-
+    //getter
     public int getMinutesPurchased() {
         return minutesPurchased;
     }
 
+    //setter
     public void setMinutesPurchased(int minutesPurchased) {
         this.minutesPurchased = minutesPurchased;
     }
 
+    //toString with data
     @Override
     public String toString() {
         return "Parking Meter Data:"

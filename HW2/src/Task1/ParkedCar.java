@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Task1;
 
 /* @Author Brandon Edwards 
@@ -13,12 +9,14 @@ package Task1;
  */
 public class ParkedCar {
 
+    //necessary car information
     private String make;
     private String model;
     private String color;
     private String licenseNumber;
     private int minutesParked;
 
+    //constructor for a car
     public ParkedCar(String mk, String mdel, String col, String lic, int minParked) {
         make = mk;
         model = mdel;
@@ -27,16 +25,17 @@ public class ParkedCar {
         minutesParked = minParked;
     }
 
+    //copy constructor
     public ParkedCar(ParkedCar car2) {
 
-        ParkedCar copyCar = new ParkedCar(
-                this.make,
-                model,
-                color,
-                licenseNumber,
-                minutesParked);
+        this.setMake(car2.getMake());
+        this.setModel(car2.getModel());
+        this.setColor(car2.getColor());
+        this.setLicenseNumber(car2.getLicenseNumber());
+        this.setMinutesParked(car2.getMinutesParked());
     }
 
+    //getters
     public String getMake() {
         return make;
     }
@@ -57,6 +56,7 @@ public class ParkedCar {
         return minutesParked;
     }
 
+    //setters
     public void setMake(String make) {
         this.make = make;
     }
@@ -77,6 +77,7 @@ public class ParkedCar {
         this.minutesParked = minutesParked;
     }
 
+    //toString that prints all the fields with proper formatting
     @Override
     public String toString() {
         return "Car Data:"

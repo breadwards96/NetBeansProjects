@@ -13,6 +13,7 @@ package Task1;
  */
 public class ParkingTicket {
 
+    //fields with aggregated classes
     private ParkedCar car;
     private PoliceOfficer officer;
     private double fine;
@@ -20,22 +21,26 @@ public class ParkingTicket {
     public final double BASE_FINE = 25.0;
     public final double HOURLY_FINE = 10.0;
 
+    //constructor
     public ParkingTicket(ParkedCar aCar, PoliceOfficer anOfficer, int meterMins) {
         car = new ParkedCar(aCar);
         officer = new PoliceOfficer(anOfficer);
         minutes = meterMins;
     }
 
+    //calculation of the fine based on constants and minutes
+    //rounded and converted to minutes
     public void calculateFine() {
 
         fine = (BASE_FINE)
                 + (HOURLY_FINE
                 * (Math.round(
-                        (double) (minutes + 50)
+                        (double) ((car.getMinutesParked() - minutes) + 50)
                         / 60)));
 
     }
 
+    //getters
     public ParkedCar getCar() {
         return car;
     }
@@ -52,6 +57,7 @@ public class ParkingTicket {
         return minutes;
     }
 
+    //setters
     public void setCar(ParkedCar car) {
         this.car = car;
     }
@@ -68,6 +74,7 @@ public class ParkingTicket {
         this.minutes = minutes;
     }
 
+    //toString using the toStrings from aggregated classes and relevant fields
     @Override
     public String toString() {
         return "Ticket Data:"

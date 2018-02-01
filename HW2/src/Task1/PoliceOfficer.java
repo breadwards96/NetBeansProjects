@@ -13,21 +13,24 @@ package Task1;
  */
 public class PoliceOfficer {
 
+    //fields for relevant data
     private String name;
     private String badgeNumber;
 
+    //constructor
     public PoliceOfficer(String officerName, String badgeNumber) {
         name = officerName;
         this.badgeNumber = badgeNumber;
     }
 
+    //copy constructor for aggregation
     public PoliceOfficer(PoliceOfficer officer) {
 
-        PoliceOfficer policeOfficer = new PoliceOfficer(
-                name,
-                badgeNumber);
+        this.setName(officer.getName());
+        this.setBadgeNumber(officer.getBadgeNumber());
     }
 
+    //getters
     public String getName() {
         return name;
     }
@@ -36,6 +39,7 @@ public class PoliceOfficer {
         return badgeNumber;
     }
 
+    //setters
     public void setName(String name) {
         this.name = name;
     }
@@ -44,6 +48,7 @@ public class PoliceOfficer {
         this.badgeNumber = badgeNumber;
     }
 
+    //toString for name and badge
     @Override
     public String toString() {
         return "Officer Data:"
