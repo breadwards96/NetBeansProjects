@@ -1,6 +1,5 @@
-package Task2;
+package hw2.pkg2;
 
-import static Task2.PasswordVerifier.isValid;
 import java.util.Scanner;
 
 /* @Author Brandon Edwards 
@@ -10,26 +9,27 @@ import java.util.Scanner;
  * other than the instructor or TAs.
  */
 public class PasswordDemo {
-    
+
     public static void main(String[] args) {
-        
+        //fields for user input
         Scanner keyboard = new Scanner(System.in);
         String input;
-        
-        System.out.println("A valid password must contain:"
-                + "\n at least 6 characters"
-                + "\n at least 1 uppercase"
-                + "\n at least 1 lowercase"
+
+        //user interaction
+        System.out.println("A valid password must contain:" 
+                + "\n at least 6 characters" 
+                + "\n at least 1 uppercase" 
+                + "\n at least 1 lowercase" 
                 + "\n and at least 1 number");
-        
         System.out.println("Enter a password:");
         input = keyboard.nextLine();
-        
-        if(isValid(input)){
+
+        //checking for validity and printing the proper response
+        if (PasswordVerifier.isValid(input)) {
             System.out.print("That password is valid");
         } else {
             System.out.println("That password is not valid!");
         }
-        
     }
+
 }

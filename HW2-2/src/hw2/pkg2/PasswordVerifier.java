@@ -1,4 +1,4 @@
-package Task2;
+package hw2.pkg2;
 
 /* @Author Brandon Edwards 
  * Date 1/29/18 
@@ -8,62 +8,56 @@ package Task2;
  */
 public class PasswordVerifier {
 
-    private final static int MIN_PASSWORD_LENGTH = 6;
+    //minimum password length
+    private static final int MIN_PASSWORD_LENGTH = 6;
 
+    //the only public method for checking the validity of a password
     public static boolean isValid(String str) {
-        
-        if(str.length() >= MIN_PASSWORD_LENGTH){
-            
+        //checking length
+        if (str.length() >= MIN_PASSWORD_LENGTH) {
+            //checking other requirements
             return hasUpperCase(str) && hasLowerCase(str) && hasDigit(str);
         }
-        
         return false;
     }
 
-    public static boolean hasUpperCase(String str) {
+    //check for uppercases
+    private static boolean hasUpperCase(String str) {
         boolean flag = false;
-
         char[] set = str.toCharArray();
-
         for (char c : set) {
             if (Character.isUpperCase(c)) {
                 flag = true;
                 break;
             }
         }
-
         return flag;
     }
 
-    public static boolean hasLowerCase(String str) {
+    //check for lowercases
+    private static boolean hasLowerCase(String str) {
         boolean flag = false;
-
         char[] set = str.toCharArray();
-
         for (char c : set) {
             if (Character.isLowerCase(c)) {
                 flag = true;
                 break;
             }
         }
-
         return flag;
     }
-
-    public static boolean hasDigit(String str) {
-
+    
+    //check for digits
+    private static boolean hasDigit(String str) {
         boolean flag = false;
-
         char[] set = str.toCharArray();
-
         for (char c : set) {
-
             if (Character.isDigit(c)) {
                 flag = true;
                 break;
             }
         }
         return flag;
-
     }
+    
 }
