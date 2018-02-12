@@ -17,21 +17,29 @@ import java.util.StringTokenizer;
  */
 public class BankAccountProcessor {
 
+    //a program that reads a file of bank accounts and detects errors
     public static void main(String[] args) throws FileNotFoundException {
 
+        //fields
         boolean runProgram = true;
         Scanner keyboard = new Scanner(System.in);
         String file;
         File accountFile = null;
         Scanner inputFile;
 
+        //asking for user input
         System.out.println("Enter a filename (with extension)");
         file = keyboard.nextLine();
+        
+        //opening the file with a scanner
         accountFile = new File(file);
         inputFile = new Scanner(accountFile);
 
+        //while loop to read through the lines in the file
         while (runProgram) {
 
+            //try catch for validating the lines
+            //throws custom exception if an error is found
             try {
                 String fileLine = inputFile.nextLine();
                 if (isValid(fileLine)) {
@@ -51,6 +59,7 @@ public class BankAccountProcessor {
                         return;
                 }
             }
+            //if to detect EOF and stop loop
             if (inputFile.hasNext()) {
             } else {
                 System.out.println("Parsing Complete");
@@ -60,13 +69,16 @@ public class BankAccountProcessor {
 
     }
 
+    //method for checking two parameters in the fileline
     private static boolean isValid(String fileLine) throws BankAccountException {
 
+        //fields
         boolean digitValidity = false, nameValidity = false;
         StringTokenizer toke = new StringTokenizer(fileLine, ";", false);
         char[] accountParts;
         final int REQUIRED_LENGTH = 3;
 
+        //checking for letters or anomolies in account number
         accountParts = toke.nextToken().toCharArray();
         for (int x = 0; x < accountParts.length; x++) {
             if (Character.isDigit(accountParts[x])) {
@@ -79,6 +91,8 @@ public class BankAccountProcessor {
             }
 
         }
+        //checking account names for short names,
+        //and non-alphabetical or non-whitespace characters
         accountParts = toke.nextToken().toCharArray();
         for (int x = 0; x < accountParts.length; x++) {
             if (accountParts.length > REQUIRED_LENGTH) {
@@ -96,6 +110,7 @@ public class BankAccountProcessor {
             }
         }
 
+        //only retruns true if both checks are valid
         return digitValidity && nameValidity;
     }
 }

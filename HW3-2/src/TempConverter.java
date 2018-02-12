@@ -1,49 +1,24 @@
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.*;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
+ * @author Brandon Edwards
+ * @since 2/11/18
  *
- * @author brandonedwards
+ **/
+/**
+ * honorCode I pledge that this submission is solely my work, and that I have
+ * neither given to nor received help from anyone other than the instructor or
+ * TAs.
+ *
  */
-public class TempConverter extends JFrame implements ActionListener {
-    
-    double temp;
-    String scale;
-    
-    public static void main(String[] args) {
-        
-        
-        JFrame window = new JFrame("C/F Converter");
-        JTextField tempInput = new JTextField("Temperature");
-        JTextField scaleInput = new JTextField("Temperature Scale");
-        JButton convertButton = new JButton("Convert");
-        
-        window.setVisible(true);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        
-        
-    }
-    
-   public static String conversion(double temp, String scale){
-        
-       
-       
-       return null;
-}
+public class TempConverter {
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        
-        String conversion = conversion(temp, scale);
-        
+    //a program that lets the user use a GUI to convert from one temp scale to another
+    //celsius and fahrenheit, no kelvin
+    public static void main(String[] args) {
+
+        //constructor for the window for the program
+        Window program = new Window();
+
     }
 }

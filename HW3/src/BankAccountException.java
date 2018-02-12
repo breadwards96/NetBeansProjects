@@ -8,6 +8,7 @@
 
 public class BankAccountException extends Exception{
 
+    //a custom exception to deal with bank account errors
     public BankAccountException(String accountLine) {
         super("Error! Account: " 
                     + accountLine + " is not valid");

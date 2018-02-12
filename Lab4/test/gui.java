@@ -13,7 +13,7 @@ import javax.swing.*;
  *
  * @author brandonedwards
  */
-public class gui extends JFrame {
+public class gui {
     
      public static void main(String[] args) {
        
@@ -23,25 +23,22 @@ public class gui extends JFrame {
          
          //window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          
-         int loc;String str = "The cow jumped over the moon.";
-         loc = str.lastIndexOf("e ");
-         loc*= str.lastIndexOf("moon!");
-         
-         System.out.println(loc);
-         
-         Object noodle = new Object();
-         
-         String pi = "pi is 3.14159, and then some";
-         StringTokenizer toke = new StringTokenizer(pi, "3.14", true);
-         while(toke.hasMoreTokens()){
-             System.out.println(toke.nextToken());
-         }
-         
-         
-    }
+             int number;
+ 
+   try {
+      String st =  "xyz";
+      System.out.println(st.startsWith("X"));
+      number= Integer.parseInt(st);
+      System.out.println( "A"); 
+   }
+   catch(NumberFormatException e)  {
+      System.out.println( "B");
+   }
+   catch(IllegalArgumentException e) {
+      System.out.println( "C");
+   }
+
+   System.out.println( "D");  }   }    
     
     
-    
-    
-    
-}
+  
