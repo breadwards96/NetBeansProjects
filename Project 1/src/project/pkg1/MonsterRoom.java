@@ -43,6 +43,7 @@ public class MonsterRoom extends Room{
                 super.addToObjects(Utilities.addToString("Top Hat", super.getRoomObjects()));
             }else{
                 super.addToObjects(Utilities.addToString(itemToDrop, super.getRoomObjects()));
+                System.out.println(itemToDrop + " got dusty");
             }
         } else {
             System.out.println("You cannot drop something that you don't have");

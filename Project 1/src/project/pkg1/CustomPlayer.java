@@ -40,7 +40,7 @@ public class CustomPlayer extends Player {
             System.out.println("  " + strT.nextToken());
             numItems++;
         }
-        System.out.println("You have + " + hitPoints + " Hit Point(s)");
+        System.out.println("You have " + hitPoints + " Hit Point(s)");
         System.out.println("  A total of " + numItems + " item(s)");
     }
 }
