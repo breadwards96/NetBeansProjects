@@ -20,12 +20,11 @@ import javax.swing.JTextField;
  * TAs.
  *
  */
-public class Window {
+public class Window extends JFrame {
 
     //fields
     private double temp;
     private String scale;
-    private JFrame window;
     private JPanel panel;
     private JLabel tempLabel;
     private JLabel scaleLabel;
@@ -39,7 +38,7 @@ public class Window {
     public Window() {
 
         //initializing each part of the window
-        window = new JFrame("C/F Converter");
+        setName("C/F Converter");
         panel = new JPanel();
         tempLabel = new JLabel("Temperature");
         scaleLabel = new JLabel("Scale");
@@ -48,15 +47,15 @@ public class Window {
         convertButton = new JButton("Convert");
 
         //setting properties of the main window
-        window.setSize(400, 100);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(400, 100);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //resizing the textfields
         tempInput.setPreferredSize(new Dimension(100, 20));
         scaleInput.setPreferredSize(new Dimension(100, 20));
 
         //adding the panel to the window
-        window.add(panel);
+        add(panel);
 
         //adding all the other components to the panel
         panel.add(tempLabel);
@@ -70,7 +69,7 @@ public class Window {
         convertButton.addActionListener(new ButtonListener());
 
         //displaying the completed window to the user
-        window.setVisible(true);
+        setVisible(true);
     }
 
     private class ButtonListener implements ActionListener {
@@ -93,7 +92,7 @@ public class Window {
             convertion = conversion(temp, scale);
 
             //displaying a OptionPane window with the results
-            JOptionPane.showMessageDialog(window, "the conversion of " + temp
+            JOptionPane.showMessageDialog(panel,"the conversion of " + temp
                     + " degrees " + scale
                     + " to " + invertScale
                     + " is " + convertion);
@@ -104,7 +103,7 @@ public class Window {
 
             //fields
             invertScale = "Celsius";
-            String conversion = null;
+            String conversion = "";
             double calc;
 
             //an if that converts celsius temperatures to fahrenheit

@@ -4,7 +4,6 @@ package lab5;
 /**
  * @author Brandon Edwards
  * @since 2/12/18
- *
  **/
 /**
  * honorCode I pledge that this submission is solely my work, and that I have
