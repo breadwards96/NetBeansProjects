@@ -1,13 +1,19 @@
 package project.pkg1;
 
 /**
+ * @author Brandon Edwards
+ * @since 2/12/18
  *
- * @author brandonedwards
+ **/
+/**
+ * honorCode I pledge that this submission is solely my work, and that I have
+ * neither given to nor received help from anyone other than the instructor or
+ * TAs.
+ *
  */
 public class GameV2 {
-    
-// sample game demo file
 
+// sample game demo file
     public static void main(String args[]) {
 
         // designate how many rooms are in the game
@@ -32,10 +38,8 @@ public class GameV2 {
 
         // play the game, as long as player object has field continuePlay set to true
         while (player.getContinuePlay() == true) {
-            playerRoomNumber =
-                    gameBoard[playerRoomNumber].playRoom(player);
+            playerRoomNumber
+                    = gameBoard[playerRoomNumber].playRoom(player);
         }
     }
 }
-    
-
