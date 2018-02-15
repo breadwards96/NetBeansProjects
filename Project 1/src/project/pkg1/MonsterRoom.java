@@ -16,6 +16,7 @@ import java.util.Scanner;
  */
 public class MonsterRoom extends Room {
 
+    //a special constructor for a special room
     public MonsterRoom(String roomName, String objects, int roomNum, String listOfExits) {
         super(roomName, objects, roomNum, listOfExits);
     }
@@ -27,6 +28,7 @@ public class MonsterRoom extends Room {
     }
 
     /**
+     * used to pull a hat out of a bunny
      *
      * @param player
      */

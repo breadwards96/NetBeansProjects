@@ -17,10 +17,12 @@ import java.util.Scanner;
 public class Bedroom extends Room {
 
 
+    //constructor
     public Bedroom(String roomName, String objects, int roomNum, String listOfExits) {
         super(roomName, objects, roomNum, listOfExits);
     }
 
+    //overrides the room play room method to perform special functions
     @Override
     public int playRoom(CustomPlayer player) {
 
@@ -74,6 +76,7 @@ public class Bedroom extends Room {
         return newRoomNum;
     }
 
+    //used to restore hit points when the player is in the bed room
     public void SleeponBed(CustomPlayer player) {
 
         player.setHitPoints(10 - player.getHitPoints());

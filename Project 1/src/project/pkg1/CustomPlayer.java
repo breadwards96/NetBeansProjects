@@ -15,8 +15,10 @@ import java.util.StringTokenizer;
  */
 public class CustomPlayer extends Player {
 
+    //the players health
     private int hitPoints;
 
+    //a custom constructor to incorporate 
     public CustomPlayer(String name, int room, String inventory, int hitPoints) {
         super(name, room, inventory);
         this.hitPoints = hitPoints;
