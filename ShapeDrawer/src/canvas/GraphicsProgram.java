@@ -5,9 +5,6 @@
  */
 package canvas;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 /**
  *
  * @author brandonedwards

@@ -10,12 +10,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Shape;
-import java.awt.geom.Arc2D;
-import java.awt.geom.CubicCurve2D;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
-import java.awt.geom.RoundRectangle2D;
 import javax.swing.JComponent;
 
 /**
@@ -23,6 +18,11 @@ import javax.swing.JComponent;
  * @author brandonedwards
  */
 public class Drawer extends JComponent{
+
+        private Shape rect;
+    
+    public Drawer() {
+    }
 
     @Override
     public void paint(Graphics g){
@@ -32,33 +32,26 @@ public class Drawer extends JComponent{
         painter.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
         
-        Shape drawLine = new Line2D.Float(20,90,55,250);
-        
-        Shape drawArc2D = new Arc2D.Double(5, 150, 100, 100, 45, 180, Arc2D.OPEN);
-        Shape drawArc2D2 = new Arc2D.Double(5, 200, 100, 100, 45, 45, Arc2D.CHORD);
-        Shape drawArc2D3 = new Arc2D.Double(5, 250, 100, 100, 45, 45, Arc2D.PIE);
-        Shape drawEllipis = new Ellipse2D.Float(10,10,100,100);
-        Shape drawRoundRec = new RoundRectangle2D.Double(25, 25, 50, 50, 45, 45);
-        Shape drawRect = new Rectangle2D.Float(300, 300, 150, 100);
-        
-        CubicCurve2D cubicCurve = new CubicCurve2D.Double();
-        
-        cubicCurve.setCurve(110, 50, 300, 200, 200, 200, 90, 263);
+        setRect(new Rectangle2D.Float(50, 50, 10, 10));
         
         painter.setPaint(Color.BLACK);
         
-        painter.draw(drawLine);
-        painter.draw(drawArc2D);
-        painter.draw(drawArc2D2);
-        painter.draw(drawArc2D3);
-        painter.draw(drawEllipis);
-        painter.draw(drawRoundRec);
-        painter.draw(drawRect);
+        painter.draw(getRect());
         
-        painter.fill(drawArc2D3);
-        
-        
-        
+    }
+
+    /**
+     * @return the rect
+     */
+    public Shape getRect() {
+        return rect;
+    }
+
+    /**
+     * @param rect the rect to set
+     */
+    public void setRect(Shape rect) {
+        this.rect = rect;
     }
     
 }
