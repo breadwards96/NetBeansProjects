@@ -1,10 +1,8 @@
 package canvas;
 
 import java.awt.BorderLayout;
-import java.awt.Shape;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.geom.Rectangle2D;
 import javax.swing.JFrame;
 
 /**
@@ -31,7 +29,7 @@ public class Window extends JFrame {
     private class moveListener implements KeyListener {
         
         int movement = 10;
-        Shape rect = new Rectangle2D.Double(50,50,10,10);
+//        Shape rect = new Rectangle2D.Double(50,50,10,10);
 
         public moveListener() {
         }
@@ -39,54 +37,47 @@ public class Window extends JFrame {
         @Override
         public void keyTyped(KeyEvent e) {
             
-            pencil.getGraphics().clearRect(0, 0, 500, 500);
+            pencil.getGraphics().clearRect(
+                    0,
+                    0,
+                    e.getComponent().getWidth(),
+                    e.getComponent().getHeight()
+            );
             
             switch (e.getKeyChar()) {
                 case 'w':
                     System.out.println("w pressed");
                     
-                    pencil.getGraphics().drawRect(
-                            (int)rect.getBounds().x,
-                            (int)rect.getBounds().y-movement,
-                            (int)rect.getBounds().getWidth(),
-                            (int)rect.getBounds().getHeight());
+                    pencil.setY(pencil.getY() - movement);
                     
-                    rect.getBounds().setRect(
-                            (int)rect.getBounds().x,
-                            (int)(rect.getBounds().y-movement),
-                            (int)rect.getBounds().getWidth(),
-                            (int)rect.getBounds().getHeight());
+                    pencil.repaint();
+                    
                     break;
                 case 's':
                     System.out.println("s pressed");
                     
-                    pencil.getGraphics().drawRect(
-                            (int)rect.getBounds().x,
-                            (int)rect.getBounds().y+movement,
-                            (int)rect.getBounds().getWidth(),
-                            (int)rect.getBounds().getHeight());
+                    pencil.setY(pencil.getY()+movement);
                     
-                    pencil.setRect(rect);
+                    pencil.repaint();
+                    
                     break;
                     
                 case 'a':
                     System.out.println("a pressed");
                     
-                    pencil.getGraphics().drawRect(
-                            (int)rect.getBounds().x-movement,
-                            (int)rect.getBounds().y,
-                            (int)rect.getBounds().getWidth(),
-                            (int)rect.getBounds().getHeight());
+                    pencil.setX(pencil.getX()-movement);
+                    
+                    pencil.repaint();
+                    
                     break;
                     
                 case 'd':
                     System.out.println("d pressed");
                     
-                    pencil.getGraphics().drawRect(
-                            (int)rect.getBounds().x+movement,
-                            (int)rect.getBounds().y,
-                            (int)rect.getBounds().width,
-                            (int)rect.getBounds().height);
+                    pencil.setX(pencil.getX()+movement);
+                    
+                    pencil.repaint();
+                    
                     break;
 
             }

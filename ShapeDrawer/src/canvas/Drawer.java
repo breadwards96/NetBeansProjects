@@ -8,6 +8,7 @@ package canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.awt.geom.Rectangle2D;
@@ -19,7 +20,9 @@ import javax.swing.JComponent;
  */
 public class Drawer extends JComponent{
 
-        private Shape rect;
+        
+        private int x = 50;
+        private int y = 50;
     
     public Drawer() {
     }
@@ -32,26 +35,40 @@ public class Drawer extends JComponent{
         painter.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
         
-        setRect(new Rectangle2D.Float(50, 50, 10, 10));
+        Shape rect = new Rectangle2D.Float(x,y,10,10);
         
         painter.setPaint(Color.BLACK);
         
-        painter.draw(getRect());
+        painter.draw(rect);
         
     }
 
     /**
-     * @return the rect
+     * @return the x
      */
-    public Shape getRect() {
-        return rect;
+    public int getX() {
+        return x;
     }
 
     /**
-     * @param rect the rect to set
+     * @param x the x to set
      */
-    public void setRect(Shape rect) {
-        this.rect = rect;
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    /**
+     * @return the y
+     */
+    public int getY() {
+        return y;
+    }
+
+    /**
+     * @param y the y to set
+     */
+    public void setY(int y) {
+        this.y = y;
     }
     
 }
