@@ -27,7 +27,7 @@ public class Window extends JFrame {
     }
 
     private class moveListener implements KeyListener {
-        
+
         int movement = 10;
 //        Shape rect = new Rectangle2D.Double(50,50,10,10);
 
@@ -36,48 +36,64 @@ public class Window extends JFrame {
 
         @Override
         public void keyTyped(KeyEvent e) {
-            
+
             pencil.getGraphics().clearRect(
                     0,
                     0,
                     e.getComponent().getWidth(),
                     e.getComponent().getHeight()
             );
-            
+
             switch (e.getKeyChar()) {
                 case 'w':
                     System.out.println("w pressed");
-                    
-                    pencil.setY(pencil.getY() - movement);
-                    
+
+                    if ((pencil.getY() - movement) < ((e.getComponent().getHeight()/2) - 10)
+                            && (pencil.getY() - movement) > 0) {
+
+                        pencil.setY(pencil.getY() - movement);
+                    }
+
                     pencil.repaint();
-                    
+
                     break;
                 case 's':
                     System.out.println("s pressed");
-                    
-                    pencil.setY(pencil.getY()+movement);
-                    
+
+                    if ((pencil.getY() + movement) < ((e.getComponent().getHeight()/2) - 10)
+                            && (pencil.getY() + movement) > 0) {
+
+                        pencil.setY(pencil.getY() + movement);
+                    }
+
                     pencil.repaint();
-                    
+
                     break;
-                    
+
                 case 'a':
                     System.out.println("a pressed");
-                    
-                    pencil.setX(pencil.getX()-movement);
-                    
+
+                    if ((pencil.getX() - movement) < ((e.getComponent().getWidth()/2) - 10)
+                            && (pencil.getX() - movement) > 0) {
+
+                        pencil.setX(pencil.getX() - movement);
+                    }
+
                     pencil.repaint();
-                    
+
                     break;
-                    
+
                 case 'd':
                     System.out.println("d pressed");
-                    
-                    pencil.setX(pencil.getX()+movement);
-                    
+
+                    if ((pencil.getX() + movement) < ((e.getComponent().getWidth()/2) - 10)
+                            && (pencil.getX() + movement) > 0) {
+
+                        pencil.setX(pencil.getX() + movement);
+                    }
+
                     pencil.repaint();
-                    
+
                     break;
 
             }
