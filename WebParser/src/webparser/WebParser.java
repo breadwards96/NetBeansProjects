@@ -40,17 +40,13 @@ public class WebParser {
         while ((currentLine = reader.readLine()) != null) {
             response.append(currentLine);
         }
-        StringTokenizer token = new StringTokenizer(response.toString(), "<", false);
+        StringTokenizer token = new StringTokenizer(response.toString(), "< >", true);
         in.close();
-        while(token.hasMoreTokens()){
-            String result = token.nextToken();
-            if(result.contains("/watch")){
+        while (token.hasMoreTokens()) {
+            StringBuilder result = new StringBuilder(token.nextToken());
+            if (result.toString().contains("/watch")) {
                 System.out.println(result);
             }
-            
         }
-        
-        
-        
     }
 }

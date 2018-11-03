@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 /**
  *
@@ -11,9 +12,13 @@ import javax.swing.JFrame;
  */
 public class Window extends JFrame {
 
+    private int scoreInt = 0;
     Drawer pencil;
+    private JLabel score;
 
     public Window() {
+        this.score = new JLabel();
+        score.setText("Score: " + String.valueOf(scoreInt));
 
         pencil = new Drawer();
 
@@ -22,14 +27,16 @@ public class Window extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.add(pencil = new Drawer(), BorderLayout.CENTER);
         this.addKeyListener(new moveListener());
+        this.add(score, BorderLayout.NORTH);
         this.setVisible(true);
+        
 
     }
 
     private class moveListener implements KeyListener {
 
         int movement = 10;
-//        Shape rect = new Rectangle2D.Double(50,50,10,10);
+        boolean pressed = true;
 
         public moveListener() {
         }
@@ -37,21 +44,14 @@ public class Window extends JFrame {
         @Override
         public void keyTyped(KeyEvent e) {
 
-            pencil.getGraphics().clearRect(
-                    0,
-                    0,
-                    e.getComponent().getWidth(),
-                    e.getComponent().getHeight()
-            );
-
             switch (e.getKeyChar()) {
                 case 'w':
                     System.out.println("w pressed");
 
-                    if ((pencil.getY() - movement) < ((e.getComponent().getHeight()/2) - 10)
-                            && (pencil.getY() - movement) > 0) {
+                    if ((pencil.getBoxPosY()- movement) < (e.getComponent().getHeight() - 10)
+                            && (pencil.getBoxPosY()- movement) > 0) {
 
-                        pencil.setY(pencil.getY() - movement);
+                        pencil.SetBoxPosY(pencil.getBoxPosY()- movement);
                     }
 
                     pencil.repaint();
@@ -60,10 +60,10 @@ public class Window extends JFrame {
                 case 's':
                     System.out.println("s pressed");
 
-                    if ((pencil.getY() + movement) < ((e.getComponent().getHeight()/2) - 10)
-                            && (pencil.getY() + movement) > 0) {
+                    if ((pencil.getBoxPosY()+ movement) < (e.getComponent().getHeight() - 20)
+                            && (pencil.getBoxPosY()+ movement) > 0) {
 
-                        pencil.setY(pencil.getY() + movement);
+                        pencil.SetBoxPosY(pencil.getBoxPosY()+ movement);
                     }
 
                     pencil.repaint();
@@ -73,10 +73,10 @@ public class Window extends JFrame {
                 case 'a':
                     System.out.println("a pressed");
 
-                    if ((pencil.getX() - movement) < ((e.getComponent().getWidth()/2) - 10)
-                            && (pencil.getX() - movement) > 0) {
+                    if ((pencil.getBoxPosX()- movement) < (e.getComponent().getWidth() - 10)
+                            && (pencil.getBoxPosX()- movement) > 0) {
 
-                        pencil.setX(pencil.getX() - movement);
+                        pencil.setBoxPosX(pencil.getBoxPosX()- movement);
                     }
 
                     pencil.repaint();
@@ -86,10 +86,10 @@ public class Window extends JFrame {
                 case 'd':
                     System.out.println("d pressed");
 
-                    if ((pencil.getX() + movement) < ((e.getComponent().getWidth()/2) - 10)
-                            && (pencil.getX() + movement) > 0) {
+                    if ((pencil.getBoxPosX()+ movement) < (e.getComponent().getWidth() - 10)
+                            && (pencil.getBoxPosX()+ movement) > 0) {
 
-                        pencil.setX(pencil.getX() + movement);
+                        pencil.setBoxPosX(pencil.getBoxPosX()+ movement);
                     }
 
                     pencil.repaint();
@@ -98,16 +98,56 @@ public class Window extends JFrame {
 
             }
 
+            if(pencil.getRect().intersects(pencil.getHitbox().getBounds2D())){
+            pencil.setPelletPosX(pencil.getRandNumber().nextInt(490));
+            pencil.setPelletPosY(pencil.getRandNumber().nextInt(490));
+            
+                setScoreInt(getScoreInt() + 1);
+                getScore().setText("Score: " + String.valueOf(getScoreInt()));
+            
+            
+            pencil.repaint();
+        }
+            
         }
 
         @Override
         public void keyPressed(KeyEvent e) {
-
+            
         }
 
         @Override
         public void keyReleased(KeyEvent e) {
+
         }
 
+    }
+
+    /**
+     * @return the scoreInt
+     */
+    public int getScoreInt() {
+        return scoreInt;
+    }
+
+    /**
+     * @param scoreInt the scoreInt to set
+     */
+    public void setScoreInt(int scoreInt) {
+        this.scoreInt = scoreInt;
+    }
+
+    /**
+     * @return the score
+     */
+    public JLabel getScore() {
+        return score;
+    }
+
+    /**
+     * @param score the score to set
+     */
+    public void setScore(JLabel score) {
+        this.score = score;
     }
 }
